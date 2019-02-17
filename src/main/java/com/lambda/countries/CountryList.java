@@ -228,11 +228,19 @@ public class CountryList {
         return foundCountries;
     }
 
-    public int getSmallestPopulation() {
+    public int getSmallestParams(String param) {
         int pop = Integer.MAX_VALUE;
-        for (Country c : countryList) {
-            if (c.getPopulation() < pop) {
-                pop = c.getPopulation();
+        if (param.equals("population")) {
+            for (Country c : countryList) {
+                if (c.getPopulation() < pop) {
+                    pop = c.getPopulation();
+                }
+            }
+        } else {
+            for (Country c : countryList) {
+                if (c.getMedian_age() < pop) {
+                    pop = c.getMedian_age();
+                }
             }
         }
         return pop;
@@ -246,5 +254,15 @@ public class CountryList {
             }
         }
         return pop;
+    }
+
+    public int getLargestAge() {
+        int age = 0;
+        for (Country c : countryList) {
+            if (c.getMedian_age() > age) {
+                age = c.getMedian_age();
+            }
+        }
+        return age;
     }
 }

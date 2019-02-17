@@ -16,7 +16,7 @@ public class PopulationController {
 
     @RequestMapping("/min")
     public Country getSmallest() {
-        return CountriesApplication.countriesList.findCountry(c -> (c.getPopulation() == CountriesApplication.countriesList.getSmallestPopulation()));
+        return CountriesApplication.countriesList.findCountry(c -> (c.getPopulation() == CountriesApplication.countriesList.getSmallestParams("population")));
     }
 
     @RequestMapping("/max")
