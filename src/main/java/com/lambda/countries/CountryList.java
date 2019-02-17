@@ -227,4 +227,24 @@ public class CountryList {
         }
         return foundCountries;
     }
+
+    public int getSmallestPopulation() {
+        int pop = Integer.MAX_VALUE;
+        for (Country c : countryList) {
+            if (c.getPopulation() < pop) {
+                pop = c.getPopulation();
+            }
+        }
+        return pop;
+    }
+
+    public int getLargestPopulation() {
+        int pop = 0;
+        for (Country c : countryList) {
+            if (c.getPopulation() > pop) {
+                pop = c.getPopulation();
+            }
+        }
+        return pop;
+    }
 }
